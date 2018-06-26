@@ -17,9 +17,15 @@
           }
           
           function changeColor(){
-              //esta función para conseguir el numero aleatorio usa dos métodos Math.floor que redondea al número más bajo próximo, math random devuelve un número aleatorio entre los 0 y el parametro que se le de, to string convierte la cantidad obtenida en un valor hexadecimal, cuando obtiene este valor le concatena # y lo coloca como color de fondo.
-              let randombackground = Math.floor(Math.random()*16777215).toString(16)
-              document.getElementById('midiv').style.backgroundColor='#'+randombackground
+            
+               let colorOptions= new Array("yellow", "red", "cyan");
+               
+                //aplicamos de nuevo el método random tomando como parámetro los indices del arreglo
+               aleatoryColor= Math.random()*(colorOptions.length);
+               //redondeamos en caso de que nos devuelva un décimal
+               aleatoryColor = Math.floor(aleatoryColor);
+               //inyectamos el contenido del indice del arreglo como una clase para el div por medio del método setAttribute
+               document.getElementById('midiv').setAttribute("class", (colorOptions[aleatoryColor]));
           }
           function changeText(){
                let spanElement = document.getElementById('eltexto').value;
