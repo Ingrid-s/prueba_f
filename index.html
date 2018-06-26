@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>PruebaFunktionell</title>
+
+     <script type="text/javascript">
+          function AutoRefresh (t) {
+               setTimeout("location.reload(true);", t);
+               changeColor();
+               changeText();
+               
+          }
+          
+          function changeColor(){
+              let randombackground = Math.floor(Math.random()*16777215).toString(16)
+              document.getElementById('midiv').style.backgroundColor='#'+randombackground
+          }
+          function changeText(){
+               let spanElement = document.getElementById('eltexto').value;
+               let textOptions= new Array("lorem ipsum dolor sit amet", "no no no", "semper fi");
+               
+
+               aleatoryText= Math.random()*(textOptions.length);
+               aleatoryText = Math.floor(aleatoryText);
+               document.getElementById('eltexto').innerHTML=(textOptions[aleatory]);
+          }
+
+          </script>
+     
+</head>
+<body onload="JavaScript:AutoRefresh(5000);">
+     <div id="midiv" class= " "> <style>
+          body{
+               margin:0;
+               padding:0;
+               position: relative;
+               
+          }
+          div{
+               width: 60vw;
+               height: 40vh;
+               position: absolute;
+               left: 20%;
+               right: 20%;
+               margin-top: 15%;
+               margin-bottom:15%;
+               text-align: center;
+               display: flex;
+               align-items: center;
+               justify-content:center;
+               opacity: 0.5;
+          }
+
+           span {
+                position: absolute;
+                display: flex;
+          }
+
+          .yellow {
+          background-color: #f2e12e;
+          opacity: .50;
+          }
+          .red {
+          background-color: #ff0000;
+          opacity: .50;
+          }
+          .cyan{
+          background-color: #00ffe1;
+          opacity: .50;
+          }
+     </style>
+
+          <span id="eltexto">un texto</span>
+     </div>
+
+     
+
+</body>
+</html>
