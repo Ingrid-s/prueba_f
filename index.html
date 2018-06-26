@@ -7,31 +7,39 @@
      <title>PruebaFunktionell</title>
 
      <script type="text/javascript">
+     //esta función hace que se recargue el navegador, recibe como parametro un número que representa el número de milisegundos en que se cargara cada vez, con true activamos forceGet que forza la recarga.
           function AutoRefresh (t) {
                setTimeout("location.reload(true);", t);
+               //llamamos a nuestras funciones que cambiaran color y texto
                changeColor();
                changeText();
                
           }
           
           function changeColor(){
+              //esta función para conseguir el numero aleatorio usa dos métodos Math.floor que redondea al número más bajo próximo, math random devuelve un número aleatorio entre los 0 y el parametro que se le de, to string convierte la cantidad obtenida en un valor hexadecimal, cuando obtiene este valor le concatena # y lo coloca como color de fondo.
               let randombackground = Math.floor(Math.random()*16777215).toString(16)
               document.getElementById('midiv').style.backgroundColor='#'+randombackground
           }
           function changeText(){
                let spanElement = document.getElementById('eltexto').value;
+               //hacemos un arreglo con las frases que queremos que cambien aleatoriamente
                let textOptions= new Array("lorem ipsum dolor sit amet", "no no no", "semper fi");
                
-
+                //aplicamos de nuevo el método random tomando como parámetro los indices del arreglo
                aleatoryText= Math.random()*(textOptions.length);
+               //redondeamos en caso de que nos devuelva un décimal
                aleatoryText = Math.floor(aleatoryText);
-               document.getElementById('eltexto').innerHTML=(textOptions[aleatory]);
+               //inyectamos el texto correspondiente al indice devuelto en el span que queremos
+               document.getElementById('eltexto').innerHTML=(textOptions[aleatoryText]);
           }
 
           </script>
      
 </head>
+            <!--llamada a la función Autorefresh para que recargue la pag. cada 5 seg.-->
 <body onload="JavaScript:AutoRefresh(5000);">
+        <!--estilos-->
      <div id="midiv" class= " "> <style>
           body{
                margin:0;
